@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 6a873760453e100438e31b11ad06d46c
-timeCreated: 1524318035
+timeCreated: 1524349817
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -53,6 +53,10 @@ TextureImporter:
     21300092: static_46
     21300094: static_47
     21300096: static_48
+    21300098: static_49
+    21300100: static_50
+    21300102: static_51
+    21300104: static_52
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -816,6 +820,62 @@ TextureImporter:
         serializedVersion: 2
         x: 48
         y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: static_49
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: static_50
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: static_51
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: static_52
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 32
         width: 16
         height: 16
       alignment: 0

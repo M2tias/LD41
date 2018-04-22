@@ -16,11 +16,20 @@ public class Player : MonoBehaviour
     private float speedFactor = 0.5f;
 
     private Vector2 targetSpeed;
+
+    [SerializeField]
     private Rigidbody2D rigidBody2D;
+
+    [SerializeField]
+    private ToolManager toolManager;
+
+    [SerializeField]
+    private Animator animator;
+
+    PlayerDirection dir = PlayerDirection.right;
 
     void Start()
     {
-        rigidBody2D = GetComponent<Rigidbody2D>();
     }
 
     void Update()
@@ -32,6 +41,28 @@ public class Player : MonoBehaviour
 
         float move_h = 0;
         float move_v = 0;
+
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            animator.SetTrigger("WALKLEFT");
+            dir = PlayerDirection.left;
+        }
+        else if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            animator.SetTrigger("WALKRIGHT");
+            dir = PlayerDirection.right;
+        }
+        else if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            animator.SetTrigger("WALKTOP");
+            dir = PlayerDirection.top;
+        }
+        else if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            animator.SetTrigger("WALKBOTTOM");
+            dir = PlayerDirection.bottom;
+        }
+
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             move_h = -1;
@@ -58,7 +89,47 @@ public class Player : MonoBehaviour
             move_v = 0;
         }
 
+        if(Input.GetKeyDown(KeyCode.X))
+        {
+            toolManager.TakeTool();
+        }
+
+        if(move_h == 0 && move_v == 0)
+        {
+            //TODO: TEMPORARY
+            if (dir == PlayerDirection.left)
+            {
+                animator.SetTrigger("IDLELEFT");
+                //Debug.Log("IDLELEFT");
+            }
+            else if(dir == PlayerDirection.top)
+            {
+                animator.SetTrigger("IDLETOP");
+                //Debug.Log("IDLETOP");
+            }
+            else if(dir == PlayerDirection.bottom)
+            {
+                animator.SetTrigger("IDLEBOTTOM");
+                //Debug.Log("IDLEBOTTOM");
+            }
+            else if(dir == PlayerDirection.right)
+            {
+                animator.SetTrigger("IDLE");
+               // Debug.Log("IDLE");
+            }
+        }
+
         targetSpeed = new Vector2(speed * move_h, speed * move_v);
         rigidBody2D.AddForce(speedFactor * (targetSpeed - rigidBody2D.velocity), ForceMode2D.Impulse);
     }
+
+    public PlayerDirection GetDir()
+    {
+        return dir;
+    }
+}
+
+public enum PlayerDirection
+{
+    right, left, top, bottom
 }
